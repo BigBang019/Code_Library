@@ -8,21 +8,27 @@ struct Q{
 	Q(){}
 	Q(int l, int r, int k) : l(l), r(r), k(k){}
 } qu[M];
-int a[N], b[N];
 
-int tr[N], lc[N * 80], rc[N * 80], sum[N * 80];
-int lt[N], rt[N], cnt1, cnt2;
-int cnt, tot;
+int a[N], b[N], cnt;
+int T[N], S[N], tot;
+int sum[N * 40], lc[N * 40], rc[N * 40];
+int use[N];
 int n, m;
+
 void init(){
-	cnt = 0;
 	tot = 0;
-	memset(tr, 0, sizeof(tr));
-	memset(sum, 0, sizeof(sum));
-	memset(rc, 0, sizeof(rc));
-	memset(lc, 0, sizeof(lc));
+	cnt = 0;
 }
-int lowbit(int x) { return x & (-x); }
+void Init_Hash(){
+	sort(b + 1, b + 1 + cnt);
+	cnt = unique(b + 1, b + 1 + cnt) - b - 1;
+}
+int has(int x){
+	return (lower_bound(b + 1, b + 1 + cnt, x) - b);
+}
+int lowbit(int x){
+	return x & (-x);
+}
 void build(int &rt,int l,int r){
 	rt = ++tot;
 	sum[rt] = 0;
@@ -32,45 +38,74 @@ void build(int &rt,int l,int r){
 	build(lc[rt], l, mid);
 	build(rc[rt], mid + 1, r);
 }
-void update(int &rt,int l,int r,int p,int v){
-	if (!rt)
-		rt = ++tot;
-	sum[rt] += v;
-	if (l==r)
-		return;
-	int mid = l + r >> 1;
-	if (p<=mid)
-		update(lc[rt], l, mid, p, v);
-	else
-		update(rc[rt], mid + 1, r, p, v);
+int update(int last,int l,int r,int p,int v){
+	int rt = ++tot;
+	int tmp = rt;
+	sum[rt] = sum[last] + v;
+	while (l<r){
+		int mid = l + r >> 1;
+		if (p<=mid){
+			lc[rt] = ++tot;
+			rc[rt] = rc[last];
+			rt = lc[rt];
+			last = lc[last];
+			r = mid;
+		}else{
+			rc[rt] = ++tot;
+			lc[rt] = lc[last];
+			rt = rc[rt];
+			last = rc[last];
+			l = mid + 1;
+		}
+		sum[rt] = sum[last] + v;
+	}
+	return tmp;
 }
-void add(int p,int x,int v){
-	for (int i = p; i <= n;i+=lowbit(i))
+void add(int index,int x,int v){
+	for (int i = index; i <= n;i+=lowbit(i))
 	{
-		update(tr[i], 1, cnt, x, v);
+		S[i] = update(S[i], 1, cnt, x, v);
 	}
 }
-int query(int l,int r,int k){
-	if (l==r)
-		return l;
-	int x = 0, mid = l + r >> 1;
-	for (int i = 1; i <= cnt1;i++)
-		x -= sum[lc[lt[i]]];
-	for (int i = 1; i <= cnt2;i++)
-		x += sum[lc[rt[i]]];
-	if (x>=k){
-		for (int i = 1; i <= cnt1;i++)
-			lt[i] = lc[lt[i]];
-		for (int i = 1; i <= cnt2;i++)
-			rt[i] = lc[rt[i]];
-		return query(l, mid, k);
-	}else{
-		for (int i = 1; i <= cnt1;i++)
-			lt[i] = rc[lt[i]];
-		for (int i = 1; i <= cnt2;i++)
-			rt[i] = rc[rt[i]];
-		return query(mid + 1, r, k - x);
+int sumLeft(int x){
+	int ans = 0;
+	for (int i = x; i;i-=lowbit(i))
+	{
+		ans += sum[lc[use[i]]];
 	}
+	return ans;
+}
+int query(int le,int re,int k){
+	int left_root = T[le - 1];
+	int right_root = T[re];
+	int l = 1, r = cnt;
+	for (int i = le - 1; i;i-=lowbit(i))
+		use[i] = S[i];
+	for (int i = re; i;i-=lowbit(i))
+		use[i] = S[i];
+	while (l<r){
+		int mid = l + r >> 1;
+		int tmp = sumLeft(re) - sumLeft(le - 1) + sum[lc[right_root]] - sum[lc[left_root]];
+		if (tmp>=k){
+			r = mid;
+			left_root = lc[left_root];
+			right_root = lc[right_root];
+			for (int i = le - 1; i;i-=lowbit(i))
+				use[i] = lc[use[i]];
+			for (int i = re; i;i-=lowbit(i))
+				use[i] = lc[use[i]];
+		}else{
+			l = mid + 1;
+			left_root = rc[left_root];
+			right_root = rc[right_root];
+			for (int i = le - 1; i;i-=lowbit(i))
+				use[i] = rc[use[i]];
+			for (int i = re; i;i-=lowbit(i))
+				use[i] = rc[use[i]];
+			k -= tmp;
+		}
+	}
+	return l;
 }
 void work(){
 	init();
@@ -89,41 +124,27 @@ void work(){
 			scanf("%d", &k);
 			qu[i] = Q(l, r, k);
 		}else{
-			b[++cnt] = r;
 			qu[i] = Q(l, r, -1);
+			b[++cnt] = r;
 		}
 	}
-	sort(b + 1, b + 1 + cnt);
-	cnt = unique(b + 1, b + 1 + cnt) - b - 1;
-	build(tr[0], 1, cnt);
+	Init_Hash();
+	build(T[0], 1, cnt);
 	for (int i = 1; i <= n;i++)
 	{
-		int p = lower_bound(b + 1, b + 1 + cnt, a[i]) - b;
-		a[i] = p;
-		add(i, p, 1);
+		T[i] = update(T[i - 1], 1, cnt, has(a[i]), 1);
+		S[i] = T[0];
 	}
 	for (int i = 1; i <= m;i++)
 	{
-		if (~qu[i].k){//Q
-			cnt1 = cnt2 = 0;
-			for (int j = qu[i].l - 1; j > 0;j-=lowbit(j))
-			{
-				lt[++cnt1] = tr[j];
-			}
-			for (int j = qu[i].r; j > 0;j-=lowbit(j))
-			{
-				rt[++cnt2] = tr[j];
-			}
-			printf("%d\n", b[query(1, cnt, qu[i].k)]);
+		if (~qu[i].k){
+			printf("%d\n", b[query(qu[i].l, qu[i].r, qu[i].k)]);
 		}else{
-			int p = lower_bound(b + 1, b + 1 + cnt, qu[i].r) - b;
-			add(qu[i].l, a[qu[i].l], -1);
-			add(qu[i].l, p, 1);
-			a[qu[i].l] = p;
+			add(qu[i].l, has(a[qu[i].l]), -1);
+			add(qu[i].l, has(qu[i].r), 1);
+			a[qu[i].l] = qu[i].r;
 		}
 	}
-	cout << endl
-		 << tot << endl;
 }
 int main(){
 	int t;
