@@ -1,3 +1,4 @@
+#include<bits/stdc++.h>
 namespace HLD{
     using namespace std;
     typedef long long ll;
@@ -107,3 +108,44 @@ namespace HLD{
     }
 }
 using namespace HLD;
+int n;
+int main(){
+    int t;
+    scanf("%d", &t);
+    for (int cas = 1; cas <= t;cas++)
+    {
+        init();
+        printf("Case #%d:\n", cas);
+        scanf("%d", &n);
+        for (int i = 1; i < n;i++)
+        {
+            int x, y;
+            scanf("%d%d", &x, &y);
+            add(x, y);
+            add(y, x);
+            indeg[x]++;
+        }
+        for (int i = 1; i <= n;i++){
+            if (indeg[i]==0){
+                build(i);
+                break;
+            }
+        }
+        int q;
+        scanf("%d",&q);
+        while(q--){
+            char ch;
+            int x;
+            ll y;
+            scanf(" %c",&ch);
+            if (ch=='C'){
+                scanf("%d",&x);
+                printf("%lld\n", qSon(x));
+            }else{
+                scanf("%d%lld",&x,&y);
+                aSon(x, y);
+            }
+        }
+    }
+    return 0;
+}
