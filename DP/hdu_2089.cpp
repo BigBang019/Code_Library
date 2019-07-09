@@ -4,7 +4,7 @@ typedef long long ll;
 const int N = 2e2 + 5;
 const int MOD = 1e9 + 7;
 int a[N], tot;
-int f[N][2];
+int f[N][2];	//数位长度为i且i+1位是否为6的总数
 
 int dfs(int len,bool state,bool fp)//fp==true表示上一位已经枚举到顶了，当前位只能枚举0->digit[len]
 {
