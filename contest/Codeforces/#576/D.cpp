@@ -26,9 +26,11 @@ void pushdown(int x,int l,int r){
     lazy[2 * x + 1] = max(lazy[2 * x + 1], lazy[x]);
     if (mid+1==r){
         tree[2 * x + 1] = max(tree[2 * x + 1], lazy[x]);
+        lazy[2 * x + 1] = 0;
     }
     if (l==mid){
         tree[2 * x] = max(tree[2 * x], lazy[x]);
+        lazy[2 * x] = 0;
     }
     lazy[x] = 0;
 }
@@ -45,8 +47,11 @@ void update(int x,int l,int r,int p,int v){
         update(2 * x + 1, mid + 1, r, p, v);
 }
 int query(int x,int l,int r,int p){
-    if (l==r)
+    if (l==r){
+        if (lazy[x])
+            tree[x] = max(tree[x], lazy[x]);
         return tree[x];
+    }
     pushdown(x, l, r);
     int mid = l + r >> 1;
     if (p<=mid)
