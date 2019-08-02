@@ -10,5 +10,6 @@
   
 ### 主席树
     /contest/2019 Multi-University Training Contest/hdu02/1011.cpp 求给定区间能组成的最大三角形
+    /contest/2019 Multi-University Training Contest/hdu04/1008.cpp 求给定区间距离p第k近的点的距离——二分答案主席树统计贡献
 ### 线性基
     /contest/2019 Multi-University Training Contest/hdu01/1002.cpp 向末尾加数或者求给定区间的最大异或和
