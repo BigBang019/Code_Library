@@ -6,11 +6,15 @@
 ## Data Structure
 
 ### 线段树
+    /contest/Codeforces/#538/F.cpp 
+    /contest/Codeforces/Educational_Round#68/E.cpp 枚举左右边界+单调队列+BIT维护y值
     /contest/cometoj/CCPC－Wannafly & Comet OJ 夏季欢乐赛（2019）/F.cpp 二维空间方阵包含最多的点——线段树统计贡献
     /contest/2019 Multi-University Training Contest/hdu02/1012.cpp 线段树统计贡献
     /contest/2019 Multi-University Training Contest/nowcoder04/C.cpp 单调栈预处理左右边界线段树求最大前缀和
+    /contest/Codeforces/#576/D.cpp
     
 ### 主席树
+    /contest/The Preliminary Contest for ICPC China Nanchang National Invitational/J.cpp 树上主席树
     /contest/2019 Multi-University Training Contest/hdu02/1011.cpp 求给定区间能组成的最大三角形
     /contest/2019 Multi-University Training Contest/hdu04/1008.cpp 求给定区间距离p第k近的点的距离——二分答案主席树统计贡献
 ### 线性基
@@ -28,7 +32,7 @@
 
 ## 图论
 
-###...
+### ...
     /contest/2019 Multi-University Training Contest/nowcoder06/E.cpp 自补图构造
     
 ### 网络流
