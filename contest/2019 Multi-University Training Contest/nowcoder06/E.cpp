@@ -1,3 +1,7 @@
+/***************************************************
+ Author: XiaoMing, IceRuler
+ 自补图
+***************************************************/
 #include<cstdio>
 #include<cstring>
 using namespace std;
