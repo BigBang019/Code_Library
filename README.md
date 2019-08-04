@@ -29,7 +29,9 @@
 ### 单调队列
     /contest/2019 Multi-University Training Contest/nowcoder03/F.cpp
     
-
+### PAM
+    /contest/2019 Multi-University Training Contest/nowcoder06/C.cpp
+    
 ## 图论
 
 ### ...
