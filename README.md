@@ -60,3 +60,7 @@
 ### ...
     /contest/2019 Multi-University Training Contest/nowcoder05/G.cpp
     
+## String
+
+### EXKMP
+    /contest/2019 Multi-University Training Contest/hdu05/1006.cpp
