@@ -32,6 +32,9 @@
 ### PAM
     /contest/2019 Multi-University Training Contest/nowcoder06/C.cpp
     
+### Trie
+    /contest/2019 Multi-University Training Contest/hdu05/1002.cpp
+    
 ## 图论
 
 ### ...
