@@ -64,6 +64,8 @@ int main(){
                     fl = 0;
                     break;
                 }
+                A += 2 * line[i].a;
+                B += 2 * line[i].b;
                 continue;
             }
             ll m = A, s = C - B;
