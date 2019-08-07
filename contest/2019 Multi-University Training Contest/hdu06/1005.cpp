@@ -42,7 +42,7 @@ int has(int x){
 
 void up(int x,int l,int r){
     mx[x] = max(mx[2 * x], mx[2 * x + 1]);
-    if (l!=r) mx[x] = max(mx[x], rs[2 * x] + ls[2 * x + 1]);
+    mx[x] = max(mx[x], rs[2 * x] + ls[2 * x + 1]);
     sum[x] = sum[2 * x] + sum[2 * x + 1];
     ls[x] = max(sum[2 * x] + ls[2 * x + 1], ls[2 * x]);
     rs[x] = max(sum[2 * x + 1] + rs[2 * x], rs[2 * x + 1]);
