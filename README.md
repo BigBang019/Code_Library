@@ -13,6 +13,7 @@
     /contest/2019 Multi-University Training Contest/nowcoder04/C.cpp 单调栈预处理左右边界线段树求最大前缀和
     /contest/Codeforces/#576/D.cpp
     /contest/2019 Multi-University Training Contest/hdu06/1005.cpp 线段树求最大子区间和——进阶
+    /contest/2019 Multi-University Training Contest/nowcoder07/C.cpp
     
 ### 主席树
     /contest/The Preliminary Contest for ICPC China Nanchang National Invitational/J.cpp 树上主席树
