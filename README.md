@@ -58,6 +58,9 @@
 ### BSGS
     /contest/2019 Multi-University Training Contest/nowcoder05/C.cpp wlsnb
     
+### min_25
+    /contest/2019 Multi-University Training Contest/nowcoder07/K.cpp
+    
 ## DP
 
 ### 状压DP
