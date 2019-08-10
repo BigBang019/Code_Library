@@ -26,9 +26,11 @@
     
 ### 单调栈
     /contest/2019 Multi-University Training Contest/nowcoder02/H.cpp 单调栈求柱形次大图矩形
+    /contest/2019 Multi-University Training Contest/nowcoder08/A.cpp 0/1矩阵求不被包含的最大矩形数目，思维过后用单调栈维护一个东西
     
 ### ST表
     /contest/2019 Multi-University Training Contest/nowcoder03/F.cpp 有ST表过的方法，lanran无敌
+    
 ### 单调队列
     /contest/2019 Multi-University Training Contest/nowcoder03/F.cpp
     
