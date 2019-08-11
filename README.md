@@ -15,6 +15,7 @@
     /contest/2019 Multi-University Training Contest/hdu06/1005.cpp 线段树求最大子区间和——进阶
     /contest/2019 Multi-University Training Contest/nowcoder07/C.cpp
     /contest/2019 Multi-University Training Contest/nowcoder07/E.cpp 区间添加+1e9范围+在线求中位数：离散化+权值线段树。第一次写头都WA飞了。二分+BIT在区间修改的题慎用
+    /contest/2019 Multi-University Training Contest/nowcoder08/E.cpp 离散化区间线段树，又难想又难写
     
 ### 主席树
     /contest/The Preliminary Contest for ICPC China Nanchang National Invitational/J.cpp 树上主席树
