@@ -16,6 +16,7 @@
     /contest/2019 Multi-University Training Contest/nowcoder07/C.cpp
     /contest/2019 Multi-University Training Contest/nowcoder07/E.cpp 区间添加+1e9范围+在线求中位数：离散化+权值线段树。第一次写头都WA飞了。二分+BIT在区间修改的题慎用
     /contest/2019 Multi-University Training Contest/nowcoder08/E.cpp 离散化区间线段树，又难想又难写
+    /contest/2019 Multi-University Training Contest/nowcoder08/I.cpp 其实这个题重点在于思维+启发式合并，只是需要用线段树维护
     
 ### 主席树
     /contest/The Preliminary Contest for ICPC China Nanchang National Invitational/J.cpp 树上主席树
@@ -40,6 +41,9 @@
     
 ### Trie
     /contest/2019 Multi-University Training Contest/hdu05/1002.cpp 贪心开路
+    
+### 启发式合并
+    /contest/2019 Multi-University Training Contest/nowcoder08/I.cpp 多棵树转化一棵树以后，重链剖分启发式合并
     
 ## 图论
 
