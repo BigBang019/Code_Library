@@ -70,7 +70,9 @@
     /contest/2019 Multi-University Training Contest/nowcoder07/K.cpp
     
 ## DP
-
+### 组合数DP
+    /contest/2019 Multi-University Training Contest/nowcoder08/J.cpp
+    
 ### 状压DP
     /contest/2019 Multi-University Training Contest/nowcoder05/E.cpp 最大独立集
 
