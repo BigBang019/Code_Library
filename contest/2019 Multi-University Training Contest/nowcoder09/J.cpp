@@ -17,9 +17,8 @@ typedef long long ll;
 typedef unsigned long long ull;
 typedef pair<int, int> pi;
 typedef pair<ll, ll> pl;
-const int N = 4e5 + 5;
+const int N = 1e6 + 5;
 const int MOD = 1e9 + 7;
-const int R = 100000;
 
 using pdd = pair<double, double>;
 vector<double> b;
@@ -27,7 +26,7 @@ pdd a[N];
 ll sum = 0;
 int d[N];
 int has(double x){
-    return lower_bound(ALL(b), x) - b.begin() + 1;
+    return lower_bound(ALL(b), x) - b.begin();
 }
 int main(){
     int n;
@@ -45,7 +44,7 @@ int main(){
     b.erase(unique(ALL(b)), b.end());
     FOR(i,n){
         double l = a[i].fi, r = a[i].sc;
-        double mid = (l + r) / 2;
+        double mid = (l + r) * 1.0 / 2;
         d[has(l)] += -2;
         d[has(mid)] += 4;
         d[has(r)] += -2;
@@ -56,7 +55,7 @@ int main(){
     FOR(i,SZ(b)){
         now += mul * (i == 0 ? 0 : b[i] - b[i - 1]);
         ans = min(now, ans);
-        mul += d[i + 1];
+        mul += d[i];
     }
     printf("%lld\n", sum - ans);
     return 0;
