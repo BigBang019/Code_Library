@@ -84,3 +84,6 @@
 
 ### EXKMP
     /contest/2019 Multi-University Training Contest/hdu05/1006.cpp
+
+### hash
+    /contest/2019 Multi-University Training Contest/nowcoder10/C.cpp
