@@ -44,6 +44,7 @@
     
 ### Trie
     /contest/2019 Multi-University Training Contest/hdu05/1002.cpp 贪心开路
+    /contest/2019 Multi-University Training Contest/hdu09/6687.cpp 贪心开路
     
 ### 启发式合并
     /contest/2019 Multi-University Training Contest/nowcoder08/I.cpp 多棵树转化一棵树以后，重链剖分启发式合并
