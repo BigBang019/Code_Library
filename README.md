@@ -79,7 +79,7 @@
     /contest/2019 Multi-University Training Contest/nowcoder05/E.cpp 最大独立集
 
 ### 树上DP
-    /contest/2019 Multi-University Training Contest/hdu09/6686.cpp
+    /contest/2019 Multi-University Training Contest/hdu09/6686.cpp 结论+直径问题
 
 ### ...
     /contest/2019 Multi-University Training Contest/nowcoder05/G.cpp
