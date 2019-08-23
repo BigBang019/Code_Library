@@ -19,6 +19,7 @@
     /contest/2019 Multi-University Training Contest/nowcoder08/I.cpp 其实这个题重点在于思维+启发式合并，只是需要用线段树维护
     /contest/Codeforces/#578/D.cpp 统计贡献，BIT维护
     /contest/2019 Multi-University Training Contest/hdu09/6681.cpp 块的个数=交点个数+1
+    /contest/hdu_869/6703.cpp 权值线段树记录在pos中的位置，修改+查询第一个>=k的权并且出现位置大于pos
     
 ### 主席树
     /contest/The Preliminary Contest for ICPC China Nanchang National Invitational/J.cpp 树上主席树
