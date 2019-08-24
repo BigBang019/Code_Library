@@ -102,6 +102,7 @@
     
 ### PAM
     /contest/2019 Multi-University Training Contest/nowcoder06/C.cpp
+    /contest/2019 Multi-University Training Contest/hdu02/6599.cpp
     
 ### SAM
     /contest/hdu_869/6704.cpp 后缀树上重链剖分式启发式合并
