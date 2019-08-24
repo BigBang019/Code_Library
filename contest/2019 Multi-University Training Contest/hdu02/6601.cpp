@@ -61,8 +61,6 @@ void query(int now,int last,int l,int r,int k){
         query(lc[now], lc[last], l, mid, k - sr);
 }
 int main(){
-    // freopen("E:\\vscode\\c++\\in.txt", "r", stdin);
-    // freopen("E:\\vscode\\c++\\out.txt", "w", stdout);
     int n, m;
     while (~scanf("%d%d", &n, &m)){
         init();
@@ -96,7 +94,5 @@ int main(){
             printf("%lld\n", ans);
         }
     }
-    // fclose(stdin);
-    // fclose(stdout);
     return 0;
 }
