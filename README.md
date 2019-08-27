@@ -108,3 +108,7 @@
 ### SAM
     /contest/hdu_869/6704.cpp 后缀树上重链剖分式启发式合并
     /contest/2019 Multi-University Training Contest/hdu01/6583.cpp SAM优化dp
+## Others
+
+### 分治
+    /contest/2019 Multi-University Training Contest/nowcoder03/G.cpp 分治统计贡献
