@@ -112,3 +112,4 @@
 
 ### 分治
     /contest/2019 Multi-University Training Contest/nowcoder03/G.cpp 分治统计贡献
+    /contest/2019 Multi-University Training Contest/hdu10/6701.cpp 分治统计贡献
