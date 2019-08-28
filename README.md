@@ -63,6 +63,8 @@
 ### 网络流
     /contest/2019 Multi-University Training Contest/nowcoder05/F.cpp Dinic求最大匹配后在残余网络上寻找最大独立集***
     
+### 分块
+    /contest/2019 Multi-University Training Contest/nowcoder03/A.cpp 异或运算加密neighbor+分块均摊暴力
     
 ## 数论
 
@@ -114,3 +116,4 @@
 ### 分治
     /contest/2019 Multi-University Training Contest/nowcoder03/G.cpp 分治统计贡献***
     /contest/2019 Multi-University Training Contest/hdu10/6701.cpp 分治统计贡献***
+    
