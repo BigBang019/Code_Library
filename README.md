@@ -64,7 +64,7 @@
     /contest/2019 Multi-University Training Contest/nowcoder05/F.cpp Dinic求最大匹配后在残余网络上寻找最大独立集***
     
 ### 分块
-    /contest/2019 Multi-University Training Contest/nowcoder03/A.cpp 异或运算加密neighbor+分块均摊暴力
+    /contest/2019 Multi-University Training Contest/nowcoder03/A.cpp 异或运算加密neighbor+分块均摊暴力***
     
 ## 数论
 
