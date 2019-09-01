@@ -23,6 +23,7 @@
     /contest/2019 Multi-University Training Contest/hdu03/6609.cpp
     /contest/2019 Multi-University Training Contest/nowcoder07/F.cpp 差分思想统计最终贡献***
     /contest/2019 Multi-University Training Contest/nowcoder08/D.cpp 8个三维树状数组维护3维最近点对
+    /contest/jisuanke/contest/3004/A.cpp 
     
 ### 主席树
     /contest/The Preliminary Contest for ICPC China Nanchang National Invitational/J.cpp 树上主席树***
