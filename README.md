@@ -48,6 +48,7 @@
     
 ### PAM
     /contest/2019 Multi-University Training Contest/nowcoder06/C.cpp
+    /contest/jisuanke/contest/3005/G.cpp
     
 ### Trie
     /contest/2019 Multi-University Training Contest/hdu05/1002.cpp 贪心开路
