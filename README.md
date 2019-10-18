@@ -24,6 +24,7 @@
     /contest/2019 Multi-University Training Contest/nowcoder07/F.cpp 差分思想统计最终贡献***
     /contest/2019 Multi-University Training Contest/nowcoder08/D.cpp 8个三维树状数组维护3维最近点对
     /contest/jisuanke/contest/3004/A.cpp 扫描线***
+    /contest/Codeforces/[Gym]102307/J.cpp 线段树+维护下溢
     
 ### 主席树
     /contest/The Preliminary Contest for ICPC China Nanchang National Invitational/J.cpp 树上主席树***
