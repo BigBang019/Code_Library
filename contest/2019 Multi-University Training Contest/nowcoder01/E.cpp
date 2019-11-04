@@ -1,3 +1,6 @@
+/*
+
+*/
 #include<cstdio>
 using namespace std;
 const int maxn=2005;
