@@ -1,62 +1,59 @@
-// #pragma GCC optimize(3)
 #include<bits/stdc++.h>
 using namespace std;
-#define fi first
-#define sc second
-#define pb push_back
-#define mp make_pair
-#define LEN(X) strlen(X)
-#define SZ(X) ((ll)(X).size())
-#define ALL(X) (X).begin(), (X).end()
-#define FOR(I, N) for (ll I = 0; I < (N); ++I)
-#define FORD(I, N) for (ll I = N; ~I; --I)
-#define REP(I, A, B) for (ll I = A; I <= (B); ++I)
-#define REPD(I, B, A) for (ll I = B; I >= A; --I)
-#define FORS(I, S) for (ll I = 0; S[I]; ++I)
+const int N = 1e5 + 5;
 typedef long long ll;
-typedef unsigned long long ull;
-typedef pair<int, int> pi;
-typedef pair<ll, ll> pl;
-const int N = 1e6 + 5;
-const ll MOD = 1e9 + 7;
- 
-int n;
-ll k;
-pair<string, pl> a[N];
- 
-string dfs(ll x,ll y,ll sz){
-    if (!sz){
-        return "";
+
+int n, k;
+struct NODE{
+    int x, y;
+    ll v;
+    NODE(){}
+    NODE(int x, int y, ll v) : x(x), y(y), v(v){}
+    bool operator<(const NODE &b) const{
+        return v < b.v;
     }
-    ll midx = (1 << (sz - 1));
-    ll midy = (1 << (sz - 1));
-    if (x<=midx){
-        if (y<=midy){
-            return "1" + dfs(y, x, sz - 1);
+};
+vector<NODE> vc;
+
+ll dfs(int x,int y,int k){
+    if (!k){
+        return 0;
+    }
+    int mid = (1 << (k - 1));
+    if (x<=mid){
+        if (y<=mid){
+            return dfs(y, x, k - 1);
         }else{
-            y -= midy;
-            return "4" + dfs(midy - y + 1, midx - x + 1, sz - 1);
+            y -= mid;
+            return dfs(mid - y + 1, mid - x + 1, k - 1) + 3ll * (1 << (2 * k - 2));
         }
-    }else{
-        x -= midx;
-        if (y<=midy){
-            return "2" + dfs(x, y, sz - 1);
-        }else{
-            y -= midy;
-            return "3" + dfs(x, y, sz - 1);
+    }
+    else
+    {
+        x -= mid;
+        if (y <= mid){
+            return dfs(x, y, k - 1) + (1 << (2 * k - 2));
+        }
+        else
+        {
+            y -= mid;
+            return dfs(x, y, k - 1) + 2ll * (1 << (2 * k - 2));
         }
     }
 }
- 
-int main(){
-    scanf("%d%lld", &n, &k);
-    FOR(i,n){
-        scanf("%lld%lld", &a[i].sc.fi, &a[i].sc.sc);
-        a[i].fi = dfs(a[i].sc.fi, a[i].sc.sc, k);
+
+int main()
+{
+    scanf("%d%d", &n, &k);
+    for (int i = 1; i <= n;++i)
+    {
+        int x, y;
+        scanf("%d%d", &x, &y);
+        vc.push_back(NODE(x, y, dfs(x, y, k)));
     }
-    sort(a, a + n);
-    FOR(i,n){
-        printf("%lld %lld\n", a[i].sc.fi, a[i].sc.sc);
+    sort(vc.begin(), vc.end());
+    for (auto it: vc){
+        printf("%d %d\n", it.x, it.y);
     }
     return 0;
 }

@@ -1,99 +1,64 @@
-// #pragma GCC optimize(3)
 #include<bits/stdc++.h>
 using namespace std;
-#define fi first
-#define sc second
-#define pb push_back
-#define mp make_pair
-#define LEN(X) strlen(X)
-#define SZ(X) ((ll)(X).size())
-#define ALL(X) (X).begin(), (X).end()
-#define FOR(I, N) for (ll I = 0; I < (N); ++I)
-#define FORD(I, N) for (ll I = N; ~I; --I)
-#define REP(I, A, B) for (ll I = A; I <= (B); ++I)
-#define REPD(I, B, A) for (ll I = B; I >= A; --I)
-#define FORS(I, S) for (ll I = 0; S[I]; ++I)
-typedef long long ll;
-typedef unsigned long long ull;
-typedef pair<ll, ll> pi;
-typedef pair<ll, ll> pl;
-const ll N = 5e6 + 5;
+const int N = 1e5 + 5;
 
-ll R = 0;
+int n, r;
+
+int tot;
+
+int x[N << 2], y[N << 2];
+
 struct NODE{
-    ll x[10];
-    ll cnt;
-    ll &operator [] (ull i){
-        return x[i];
-    }
-    bool operator < (const NODE & b) const {
-        return cnt < b.cnt;
-    }
+    int cnt;
+    int pos;
     bool operator > (const NODE & b) const {
-        return b < (*this);
+        return cnt > b.cnt;
     }
+    NODE(){}
+    NODE(int pos, int cnt) : cnt(cnt), pos(pos){}
 } X[N], Y[N];
-ll tot;
-ll x[N], y[N];
-map<ll, ll> fn;
-  
-ll n, r;
-int main(){
-    scanf("%lld%lld", &n, &r);
-    for (ll i = 1; i <= n;++i){
-        ll x0, y0;
-        scanf("%lld%lld", &x0, &y0);
-        R = max(R, max(x0, y0));
-        x[x0]++;
-        y[y0]++;
-        fn[x0 * ll(1e9) + y0]++;
-    }
-    for (ll i = 0; i <= R;++i)
+
+map<int, int> vis[N << 2];
+
+int main()
+{
+    scanf("%d%d", &n, &r);
+    for (int i = 1; i <= n; ++i)
     {
+        int x0, y0;
+        scanf("%d%d", &x0, &y0);
+        ++vis[x0][y0];
+        ++x[x0];
+        ++y[y0];
+    }
+    tot = 0;
+    for (int i = 0; i <= 1e5; ++i){
         ++tot;
-        X[tot][0] = i, X[tot][1] = i + r, X[tot][2] = i + 2 * r, X[tot].cnt = x[i] + x[i + r] + x[i + 2 * r];
-        Y[tot][0] = i, Y[tot][1] = i + r, Y[tot][2] = i + 2 * r, Y[tot].cnt = y[i] + y[i + r] + y[i + 2 * r];
+        X[i] = NODE(i, x[i] + x[i + r] + x[i + 2 * r]);
+        Y[i] = NODE(i, y[i] + y[i + r] + y[i + 2 * r]);
     }
-    sort(X + 1, X + 1 + tot, [](NODE a, NODE b) {
+    sort(X, X + tot + 1, [](NODE a, NODE b) {
         return a > b;
     });
-    sort(Y + 1, Y + 1 + tot, [](NODE a, NODE b) {
+    sort(Y, Y + tot + 1, [](NODE a, NODE b) {
         return a > b;
     });
-    ll ans = 0;
-    for (ll i = 1; i <= tot; ++i)
+    int ans = 0;
+    for (int i = 0; i <= tot; ++i)
     {
-        ll now = 0;
-        ll dif = -1;
-        for (ll j = 1; j <= tot; ++j)
+        int x = X[i].pos;
+        for (int j = 0; j <= tot; ++j)
         {
-            if (j>1){
-                if (X[i].cnt+Y[i].cnt<=ans){
-                    break;
-                }
-                // ll nd = Y[1].cnt - Y[j].cnt;
-                // if (~dif && nd>=dif)
-                //     break;
+            int y = Y[j].pos;
+            int now = X[i].cnt + Y[j].cnt;
+            if (ans >= now)
+            {
+                break;
             }
-  
-            now = X[i].cnt + Y[j].cnt;
-  
-            ll nd = 0;
-            FOR(k,3) FOR(l,3){
-                auto it = fn.find(X[i][k] * ll(1e9) + Y[j][l]);
-                // cout << X[i][k] << " " << Y[j][l] << " ";
-                if (it!=fn.end()){
-                    // cout << it->sc << endl;
-                    nd += it->sc;
-                }
-                // cout << endl;
-            }
-            if (now-nd>=ans){
-                dif = ~dif ? min(nd, dif) : nd;
-                ans = now - nd;
-            }
+            now -= vis[x][y] + vis[x][y + r] + vis[x][y + 2 * r] + vis[x + r][y] + vis[x + r][y + r] + vis[x + r][y + 2 * r] + vis[x + 2 * r][y] + vis[x + 2 * r][y + r] + vis[x + 2 * r][y + 2 * r];
+            ans = max(ans, now);
         }
     }
-    printf("%lld\n", ans);
+    printf("%d\n", ans);
     return 0;
 }
