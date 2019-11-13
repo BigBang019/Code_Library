@@ -1,5 +1,5 @@
 # Code_Library
-    
+
   Algorithm practices in all popular online judge.  
     
   Some of the solutions are available on https://BigBang019.github.io
@@ -25,72 +25,64 @@
     /contest/2019 Multi-University Training Contest/nowcoder08/D.cpp 8个三维树状数组维护3维最近点对
     /contest/jisuanke/contest/3004/A.cpp 扫描线***
     /contest/Codeforces/[Gym]102307/J.cpp 线段树+维护下溢
-    
+
 ### 主席树
     /contest/The Preliminary Contest for ICPC China Nanchang National Invitational/J.cpp 树上主席树***
     /contest/2019 Multi-University Training Contest/hdu02/1011.cpp 求给定区间能组成的最大三角形
     /contest/2019 Multi-University Training Contest/hdu04/1008.cpp 求给定区间距离p第k近的点的距离——二分答案主席树统计贡献
     /contest/2019 Multi-University Training Contest/nowcoder09/H.cpp 不二分更好..但是不好写^_^
-    
+
 ### 线性基
     /contest/2019 Multi-University Training Contest/hdu01/1002.cpp 向末尾加数或者求给定区间的最大异或和
     /contest/2019 Multi-University Training Contest/nowcoder04/B.cpp 线段树维护线性基合并求交***
-    
+
 ### 单调栈
     /contest/2019 Multi-University Training Contest/nowcoder02/H.cpp 单调栈求柱形次大图矩形
     /contest/2019 Multi-University Training Contest/nowcoder08/A.cpp 0/1矩阵求不被包含的最大矩形数目，思维过后用单调栈维护一个东西
     /contest/2019 Multi-University Training Contest/hdu10/6701.cpp 分治思想处理一类问题，单调栈预处理
-    
+
 ### ST表
     /contest/2019 Multi-University Training Contest/nowcoder03/F.cpp 有ST表过的方法，lanran无敌
-    
+
 ### 单调队列
     /contest/2019 Multi-University Training Contest/nowcoder03/F.cpp
-    
-### PAM
-    /contest/2019 Multi-University Training Contest/nowcoder06/C.cpp
-    /contest/jisuanke/contest/3005/G.cpp
-    
-### Trie
-    /contest/2019 Multi-University Training Contest/hdu05/1002.cpp 贪心开路
-    /contest/2019 Multi-University Training Contest/hdu09/6687.cpp 贪心开路
-    
+
 ### 启发式合并
     /contest/2019 Multi-University Training Contest/nowcoder08/I.cpp 多棵树转化一棵树以后，重链剖分启发式合并***
     /contest/hdu_869/6704.cpp 后缀树上重链剖分式启发式合并***
-    
+
 ## 图论
 
 ### ...
     /contest/2019 Multi-University Training Contest/nowcoder06/E.cpp 自补图构造
-    
+
 ### 网络流
     /contest/2019 Multi-University Training Contest/nowcoder05/F.cpp Dinic求最大匹配后在残余网络上寻找最大独立集***
-    
+
 ### 分块
     /contest/2019 Multi-University Training Contest/nowcoder03/A.cpp 异或运算加密neighbor+分块均摊暴力***
-    
+
 ## 数论
 
 ### BM线性递推
     /contest/2019 Multi-University Training Contest/nowcoder02/B.cpp
-    
+
 ### 矩阵快速幂
     /contest/2019 Multi-University Training Contest/nowcoder05/B.cpp 十进制倍增+矩阵快速幂***
 
 ### BSGS
     /contest/2019 Multi-University Training Contest/nowcoder05/C.cpp wlsnb
-    
+
 ### min_25
     /contest/2019 Multi-University Training Contest/nowcoder07/K.cpp
-    
+
 ### 杜教筛
     /contest/hdu_869/6706.cpp
-    
+
 ## DP
 ### 组合数DP
     /contest/2019 Multi-University Training Contest/nowcoder08/J.cpp
-    
+
 ### 状压DP
     /contest/2019 Multi-University Training Contest/nowcoder05/E.cpp 最大独立集
 
@@ -99,19 +91,24 @@
 
 ### ...
     /contest/2019 Multi-University Training Contest/nowcoder05/G.cpp
-    
+
 ## String
+
+### Trie
+    /contest/2019 Multi-University Training Contest/hdu05/1002.cpp 贪心开路
+    /contest/2019 Multi-University Training Contest/hdu09/6687.cpp 贪心开路
 
 ### EXKMP
     /contest/2019 Multi-University Training Contest/hdu05/1006.cpp
 
 ### hash
     /contest/2019 Multi-University Training Contest/nowcoder10/C.cpp
-    
+
 ### PAM
     /contest/2019 Multi-University Training Contest/nowcoder06/C.cpp
     /contest/2019 Multi-University Training Contest/hdu02/6599.cpp
-    
+    /contest/jisuanke/contest/3005/G.cpp
+
 ### SAM
     /contest/hdu_869/6704.cpp 后缀树上重链剖分式启发式合并***
     /contest/2019 Multi-University Training Contest/hdu01/6583.cpp SAM优化dp
@@ -120,4 +117,4 @@
 ### 分治
     /contest/2019 Multi-University Training Contest/nowcoder03/G.cpp 分治统计贡献***
     /contest/2019 Multi-University Training Contest/hdu10/6701.cpp 分治统计贡献***
-    
+
