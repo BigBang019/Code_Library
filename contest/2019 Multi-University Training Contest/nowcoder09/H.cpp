@@ -1,82 +1,76 @@
-// #pragma GCC optimize(3)
 #include<bits/stdc++.h>
 using namespace std;
-#define fi first
-#define sc second
-#define pb push_back
-#define mp make_pair
-#define LEN(X) strlen(X)
-#define SZ(X) ((int)(X).size())
-#define ALL(X) (X).begin(), (X).end()
-#define FOR(I, N) for (int I = 0; I < (N); ++I)
-#define FORD(I, N) for (int I = N; ~I; --I)
-#define REP(I, A, B) for (int I = A; I <= (B); ++I)
-#define REPD(I, B, A) for (int I = B; I >= A; --I)
-#define FORS(I, S) for (int I = 0; S[I]; ++I)
+const int N = 1e6 + 5;
 typedef long long ll;
-typedef unsigned long long ull;
-typedef pair<int, int> pi;
-typedef pair<ll, ll> pl;
-const int N = 2e5 + 5;
-const int MOD = 1e9 + 7;
-const int R = 100000;
 
-int T[N], cnt[N * 24], lc[N * 24], rc[N * 24], tot;
-ll sum[N * 24];
+int n, q;
+int a[N];
+vector<int> b;
+ll tree[N * 20];
+int lc[N * 20], rc[N * 20], tot, cnt[N * 20];
+int T[N];
+ll sum[N];
 
-
+void init_hash(){
+    sort(b.begin(), b.end());
+    b.erase(unique(b.begin(), b.end()), b.end());
+}
+int has(int x){
+    return lower_bound(b.begin(), b.end(), x) - b.begin() + 1;
+}
 void update(int &rt,int last,int l,int r,int p){
     rt = ++tot;
-    int now = tot;
-    cnt[now] = cnt[last] + 1;
-    sum[now] = sum[last] + p;
-    if (l==r) return;
+    lc[rt] = lc[last];
+    rc[rt] = rc[last];
+    tree[rt] = tree[last] + b[p - 1];
+    cnt[rt] = cnt[last] + 1;
+    if (l == r)
+    {
+        return;
+    }
     int mid = l + r >> 1;
-    lc[now] = lc[last];
-    rc[now] = rc[last];
-    if (p<=mid) update(lc[now], lc[last], l, mid, p);
-    else update(rc[now], rc[last], mid + 1, r, p);
+    if (p<=mid)
+        update(lc[rt], lc[last], l, mid, p);
+    else
+        update(rc[rt], rc[last], mid + 1, r, p);
 }
-pair<ll,int> query(int now,int last,int l,int r,double hei){
+
+double query(int now,int last, int l,int r,double amount,int nowcnt){
     if (l==r){
-        return l <= hei ? mp(sum[now] - sum[last], cnt[now] - cnt[last]) : mp(0ll, 0);
+        return amount / nowcnt;
     }
     int mid = l + r >> 1;
-    ll ls = sum[lc[now]] - sum[lc[last]];
-    int lt = cnt[lc[now]] - cnt[lc[last]];
-    if (hei>mid){
-        pair<ll, int> res = query(rc[now], rc[last], mid + 1, r, hei);
-        return mp(res.fi + ls, res.sc + lt);
-    }else{
-        return query(lc[now], lc[last], l, mid, hei);
+
+    int leftcnt = cnt[lc[now]] - cnt[lc[last]];
+    ll leftamount = tree[lc[now]] - tree[lc[last]];
+
+    if (1ll * (nowcnt - leftcnt) * b[mid - 1] + leftamount <= amount)
+    { //go right
+        return query(rc[now], rc[last], mid + 1, r, amount - leftamount, nowcnt - leftcnt);
+    }
+    else{//go left
+        return query(lc[now], lc[last], l, mid, amount, nowcnt);
     }
 }
+
 int main(){
-    int n, m;
-    scanf("%d%d", &n, &m);
-    REP(i,1,n){
-        int x;
-        scanf("%d", &x);
-        update(T[i], T[i - 1], 1, R, x);
+    scanf("%d%d", &n, &q);
+    for (int i = 1; i <= n; ++i)
+    {
+        scanf("%d", a + i);
+        b.push_back(a[i]);
+        sum[i] = sum[i - 1] + a[i];
     }
-    while (m--){
-        int ql, qr, x, y;
-        scanf("%d%d%d%d", &ql, &qr, &x, &y);
-        double H = sum[T[qr]] - sum[T[ql - 1]];
-        double l = 0, r = R, mid;
-        double left = H - x * H / y;
-        while (r-l>1e-8){
-            mid = (l + r) / 2;
-            pair<ll, int> res = query(T[qr], T[ql - 1], 1, R, mid);
-            int cutn = qr - ql + 1 - res.sc;
-            double qleft = res.fi + cutn * mid;
-            if (qleft>=left){
-                r = mid;
-            }else{
-                l = mid;
-            }
-        }
-        printf("%.12f\n", r);
+    init_hash();
+    for (int i = 1; i <= n; ++i)
+    {
+        update(T[i], T[i - 1], 1, b.size(), has(a[i]));
+    }
+    while (q--){
+        int l, r, x, y;
+        scanf("%d%d%d%d", &l, &r, &x, &y);
+        double amount = sum[r] - sum[l - 1] - x * 1.0 * (sum[r] - sum[l - 1]) / y;
+        printf("%.12f\n", query(T[r], T[l - 1], 1, b.size(), amount, r - l + 1));
     }
     return 0;
 }
