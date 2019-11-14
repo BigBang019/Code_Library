@@ -8,7 +8,7 @@
 ### 线段树
     /contest/Codeforces/#538/F.cpp 
     /contest/Codeforces/Educational_Round#68/E.cpp 枚举左右边界+单调队列+BIT维护y值***
-    /contest/cometoj/CCPC－Wannafly & Comet OJ 夏季欢乐赛（2019）/F.cpp 二维空间方阵包含最多的点——线段树统计贡献***
+    /contest/cometoj/59/F.cpp 二维空间方阵包含最多的点——线段树统计贡献***
     /contest/2019 Multi-University Training Contest/hdu02/1012.cpp 线段树统计贡献
     /contest/2019 Multi-University Training Contest/nowcoder04/C.cpp 单调栈预处理左右边界线段树求最大前缀和
     /contest/Codeforces/#576/D.cpp
@@ -27,7 +27,7 @@
     /contest/Codeforces/[Gym]102307/J.cpp 线段树+维护下溢
 
 ### 主席树
-    /contest/The Preliminary Contest for ICPC China Nanchang National Invitational/J.cpp 树上主席树***
+    /contest/jisuanke/contest/2290/J.cpp 树上主席树***
     /contest/2019 Multi-University Training Contest/hdu02/1011.cpp 求给定区间能组成的最大三角形
     /contest/2019 Multi-University Training Contest/hdu04/1008.cpp 求给定区间距离p第k近的点的距离——二分答案主席树统计贡献
     /contest/2019 Multi-University Training Contest/nowcoder09/H.cpp 不二分更好..但是不好写^_^
@@ -49,7 +49,7 @@
 
 ### 启发式合并
     /contest/2019 Multi-University Training Contest/nowcoder08/I.cpp 多棵树转化一棵树以后，重链剖分启发式合并***
-    /contest/hdu_869/6704.cpp 后缀树上重链剖分式启发式合并***
+    /contest/hdu/869/6704.cpp 后缀树上重链剖分式启发式合并***
 
 ## 图论
 
@@ -77,7 +77,7 @@
     /contest/2019 Multi-University Training Contest/nowcoder07/K.cpp
 
 ### 杜教筛
-    /contest/hdu_869/6706.cpp
+    /contest/hdu/869/6706.cpp
 
 ## DP
 ### 组合数DP
